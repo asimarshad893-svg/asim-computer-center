@@ -71,5 +71,47 @@ District Azamgarh, Uttar Pradesh
     <td>₹110</td>
   </tr>
 </table>
+ <hr>
+<h2>Online Order</h2>
+
+<form onsubmit="sendWhatsApp(); return false;">
+  <label>Naam:</label><br>
+  <input type="text" id="name" required><br><br>
+
+  <label>Mobile Number:</label><br>
+  <input type="tel" id="mobile" required><br><br>
+
+  <label>Service Chune:</label><br>
+  <select id="service">
+    <option>Online Form</option>
+    <option>PAN Card</option>
+    <option>Aadhaar Print</option>
+    <option>Typing</option>
+    <option>Printing</option>
+  </select><br><br>
+
+  <label>Message:</label><br>
+  <textarea id="message"></textarea><br><br>
+
+  <button type="submit">WhatsApp par Order Bheje</button>
+</form>
+
+<script>
+function sendWhatsApp() {
+  var name = document.getElementById("name").value;
+  var mobile = document.getElementById("mobile").value;
+  var service = document.getElementById("service").value;
+  var message = document.getElementById("message").value;
+
+  var text = 
+    "New Order%0A" +
+    "Naam: " + name + "%0A" +
+    "Mobile: " + mobile + "%0A" +
+    "Service: " + service + "%0A" +
+    "Message: " + message;
+
+  window.open("https://wa.me/917317060110?text=" + text, "_blank");
+}
+</script>
 </body>
 </html>
