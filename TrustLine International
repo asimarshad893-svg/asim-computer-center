@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>TrustLine International</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f4f6f8;
+}
+
+/* Banner */
+.hero img{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+/* Content */
+.container{
+    max-width:900px;
+    margin:30px auto;
+    padding:20px;
+}
+
+/* Services */
+.services h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+.services ul{
+    list-style:none;
+    padding:0;
+}
+.services li{
+    background:#ffffff;
+    margin:10px 0;
+    padding:15px;
+    border-radius:6px;
+    box-shadow:0 0 5px rgba(0,0,0,0.1);
+}
+
+/* WhatsApp Button */
+.whatsapp{
+    display:block;
+    width:fit-content;
+    margin:30px auto;
+    background:#25D366;
+    color:#fff;
+    text-decoration:none;
+    padding:15px 25px;
+    border-radius:30px;
+    font-size:16px;
+    font-weight:bold;
+}
+
+/* Footer */
+.footer{
+    background:#0b3c5d;
+    color:#fff;
+    text-align:center;
+    padding:15px;
+    margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Banner -->
+<div class="hero">
+    <img src="banner.jpg" alt="TrustLine International">
+</div>
+
+<!-- Content -->
+<div class="container services">
+    <h2>Our Services</h2>
+    <ul>
+        <li>Dubai Visa Service</li>
+        <li>All Country Air Tickets</li>
+        <li>Dubai Hotel Booking</li>
+        <li>Money Transfer (Dubai to India)</li>
+    </ul>
+
+    <!-- WhatsApp -->
+    <a class="whatsapp" href="https://wa.me/917317060110" target="_blank">
+        📞 WhatsApp: 73170 60110
+    </a>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    © TrustLine International
+</div>
+
+</body>
+</html>
