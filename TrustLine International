@@ -2,99 +2,233 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>TrustLine International</title>
+<title>Shakeeb Computer | Professional Online Service Portal</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!-- Icons -->
 <style>
-body{
-    margin:0;
-    font-family: Arial, Helvetica, sans-serif;
-    background:#f4f6f8;
+:root{
+  --bg: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); /* Improved background gradient */
+  --sidebar: linear-gradient(180deg, #1e293b 0%, #334155 100%);
+  --sidebar-hover: #fbbf24;
+  --primary: #f59e0b;
+  --accent: #d97706;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --error: #ef4444;
+  --success: #10b981;
+  --shadow: 0 10px 25px rgba(0,0,0,0.1);
+  --shadow-hover: 0 15px 35px rgba(0,0,0,0.15); /* Deeper shadow for hovers */
 }
-
-/* Banner */
-.hero img{
-    width:100%;
-    height:auto;
-    display:block;
-}
-
-/* Content */
-.container{
-    max-width:900px;
-    margin:30px auto;
-    padding:20px;
-}
-
-/* Services */
-.services h2{
-    text-align:center;
-    margin-bottom:20px;
-}
-.services ul{
-    list-style:none;
-    padding:0;
-}
-.services li{
-    background:#ffffff;
-    margin:10px 0;
-    padding:15px;
-    border-radius:6px;
-    box-shadow:0 0 5px rgba(0,0,0,0.1);
-}
-
-/* WhatsApp Button */
-.whatsapp{
-    display:block;
-    width:fit-content;
-    margin:30px auto;
-    background:#25D366;
-    color:#fff;
-    text-decoration:none;
-    padding:15px 25px;
-    border-radius:30px;
-    font-size:16px;
-    font-weight:bold;
-}
-
-/* Footer */
-.footer{
-    background:#0b3c5d;
-    color:#fff;
-    text-align:center;
-    padding:15px;
-    margin-top:40px;
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:var(--bg);color:var(--text);line-height:1.6; overflow-x: hidden;} /* Prevent horizontal scroll */
+.app{display:flex;min-height:100vh;}
+.sidebar{width:280px;background:var(--sidebar);color:#fff;padding:30px 25px;box-shadow:var(--shadow);transition: width 0.3s ease;} /* Smooth toggle */
+.sidebar h2{text-align:center;margin-bottom:30px;color:#fbbf24;font-size:24px;font-weight:600;}
+.service-btn{width:100%;padding:15px 18px;margin-bottom:12px;border:none;border-radius:12px;background:#475569;color:#e2e8f0;text-align:left;font-size:16px;cursor:pointer;transition: all 0.3s ease; position: relative;} /* Added position for icons */
+.service-btn:hover,.service-btn.active{background:var(--sidebar-hover);color:#fff;transform:translateY(-2px); box-shadow: var(--shadow-hover);}
+.service-btn i{margin-right:10px;} /* Better icon spacing */
+.main{flex:1;padding:40px; animation: fadeIn 0.5s ease;} /* Fade-in animation */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.header{background:var(--card);padding:30px;border-radius:20px;box-shadow:var(--shadow);margin-bottom:30px;display:flex;justify-content:space-between;align-items:center; transition: box-shadow 0.3s ease;}
+.header:hover{box-shadow: var(--shadow-hover);} /* Hover effect */
+.header h1{color:var(--primary);font-size:32px;font-weight:700;}
+.header p{color:var(--muted);font-size:16px;}
+.header .contact{display:flex;gap:15px;}
+.header .contact a{color:var(--muted);text-decoration:none;font-size:18px;transition: color 0.3s ease, transform 0.3s ease;}
+.header .contact a:hover{color:var(--primary); transform: scale(1.1);}
+.card{background:var(--card);padding:40px;border-radius:25px;box-shadow:var(--shadow);border:1px solid var(--border);max-width:1000px;margin-bottom:40px; animation: fadeIn 0.5s ease; transition: box-shadow 0.3s ease;}
+.card:hover{box-shadow: var(--shadow-hover);}
+.card h3{color:var(--primary);font-size:24px;margin-bottom:20px;font-weight:600;}
+label{font-size:16px;color:var(--muted);font-weight:500;}
+input[type=text],input[type=email]{width:100%;padding:15px;border-radius:12px;border:1px solid var(--border);margin:10px 0 20px;font-size:16px;transition: border-color 0.3s ease, box-shadow 0.3s ease;}
+input:focus{border-color:var(--primary);outline:none; box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);} /* Focus ring */
+.doc-box{display:none;background:#fef3c7;border:2px dashed var(--primary);border-radius:20px;padding:25px;margin-top:15px; animation: slideDown 0.3s ease;}
+@keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+.doc-box h4{color:#92400e;margin-bottom:15px;font-size:18px;}
+.doc{margin-bottom:15px;}
+.doc input[type=file]{display:block;margin-top:8px;padding:10px;border:1px solid var(--border);border-radius:8px; transition: border-color 0.3s ease;}
+.doc input[type=file]:focus{border-color: var(--primary);}
+button.submit{margin-top:20px;padding:15px 30px;border:none;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;font-weight:600;font-size:16px;cursor:pointer;transition: transform 0.3s ease, box-shadow 0.3s ease;}
+button.submit:hover{transform:translateY(-2px);box-shadow:var(--shadow);}
+.note{font-size:14px;color:var(--muted);margin-top:15px;}
+.error{color:var(--error);font-size:14px;margin-top:10px;}
+.success{color:var(--success);font-size:14px;margin-top:10px;}
+.loading{display:none;margin-top:15px;font-size:16px;color:var(--primary);}
+.about,.testimonials{margin-bottom:40px;}
+.about h2,.testimonials h2{color:var(--primary);font-size:28px;margin-bottom:20px;text-align:center;}
+.testimonials .testimonial{background:var(--card);padding:20px;border-radius:15px;box-shadow:var(--shadow);margin:10px 0;text-align:center; transition: transform 0.3s ease;}
+.testimonials .testimonial:hover{transform: translateY(-5px);}
+.footer{background:#1e293b;color:#e2e8f0;padding:30px;text-align:center;font-size:14px;}
+.footer a{color:#fbbf24;text-decoration:none;margin:0 10px; transition: color 0.3s ease;}
+.footer a:hover{color: var(--primary);}
+.sidebar-toggle { display: none; position: fixed; top: 20px; left: 20px; z-index: 1000; background: var(--primary); color: #fff; border: none; padding: 10px; border-radius: 50%; cursor: pointer; transition: background 0.3s ease; }
+.sidebar-toggle:hover{background: var(--accent);}
+.sidebar.collapsed { width: 60px; transition: width 0.3s ease; }
+.sidebar.collapsed h2, .sidebar.collapsed .service-btn { display: none; }
+@media(min-width:901px) { .sidebar-toggle { display: block; } }
+@media(max-width:900px){
+  .sidebar{display:none;}
+  .header{flex-direction:column;text-align:center;}
+  .main{padding:20px;} /* Tighter padding on mobile */
+  .card{padding:20px;} /* Responsive card padding */
 }
 </style>
 </head>
-
 <body>
-
-<!-- Banner -->
-<div class="hero">
-    <img src="banner.jpg" alt="TrustLine International">
+<div class="app">
+  <button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar"><i class="fas fa-bars"></i></button>
+  <aside class="sidebar" aria-label="Services menu">
+    <h2><i class="fas fa-cogs" alt="Services icon"></i> Online Services</h2>
+    <button class="service-btn" onclick="openService('voter',this)" aria-label="Select Voter ID service"><i class="fas fa-vote-yea"></i> Voter ID</button>
+    <button class="service-btn" onclick="openService('pan',this)" aria-label="Select PAN Card service"><i class="fas fa-id-card"></i> PAN Card</button>
+    <button class="service-btn" onclick="openService('aadhaar',this)" aria-label="Select Aadhaar Update service"><i class="fas fa-user-check"></i> Aadhaar Update</button>
+    <button class="service-btn" onclick="openService('income',this)" aria-label="Select Income Certificate service"><i class="fas fa-file-invoice-dollar"></i> Income Certificate</button>
+    <button class="service-btn" onclick="openService('caste',this)" aria-label="Select Caste Certificate service"><i class="fas fa-users"></i> Caste Certificate</button>
+    <button class="service-btn" onclick="openService('domicile',this)" aria-label="Select Domicile service"><i class="fas fa-home"></i> Domicile</button>
+    <button class="service-btn" onclick="openService('ration',this)" aria-label="Select Ration Card service"><i class="fas fa-utensils"></i> Ration Card</button>
+    <button class="service-btn" onclick="openService('ayushman',this)" aria-label="Select Ayushman Card service"><i class="fas fa-heartbeat"></i> Ayushman Card</button>
+    <button class="service-btn" onclick="openService('passport',this)" aria-label="Select Passport service"><i class="fas fa-passport"></i> Passport</button>
+    <button class="service-btn" onclick="openService('dl',this)" aria-label="Select Driving Licence service"><i class="fas fa-car"></i> Driving Licence</button>
+    <button class="service-btn" onclick="openService('resume',this)" aria-label="Select Resume/Job service"><i class="fas fa-briefcase"></i> Resume / Job</button>
+  </aside>
+  <main class="main">
+    <div class="header">
+      <div>
+        <h1><i class="fas fa-laptop"></i> Shakeeb Computer</h1>
+        <p>Professional Online Service Portal – Easy, Fast, Secure</p>
+      </div>
+      <div class="contact">
+        <a href="tel:+911234567890" aria-label="Call us"><i class="fas fa-phone" alt="Call us"></i></a>
+        <a href="mailto:info@shakeebcomputer.com" aria-label="Email us"><i class="fas fa-envelope" alt="Email us"></i></a>
+        <a href="#" aria-label="WhatsApp us"><i class="fab fa-whatsapp" alt="WhatsApp us"></i></a>
+      </div>
+    </div>
+    <div class="about">
+      <h2>About Us</h2>
+      <p>We provide hassle-free online services for government documents like Aadhaar, PAN, Voter ID, and more. Trusted by thousands – get your work done from home!</p>
+    </div>
+    <div class="card">
+      <h3><i class="fas fa-user"></i> Customer Details</h3>
+      <form id="serviceForm" enctype="multipart/form-data">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Enter your full name" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+        <label for="mobile">Mobile Number</label>
+        <input type="text" id="mobile" placeholder="Enter mobile number" required>
+        <button type="button" onclick="resetForm()" style="margin-top:10px; padding:10px 20px; background:#64748b; color:#fff; border:none; border-radius:8px; cursor:pointer; transition: background 0.3s ease;" onmouseover="this.style.background='#475569'" onmouseout="this.style.background='#64748b'">Reset Form</button>
+        <div id="docBox" class="doc-box">
+          <h4 id="serviceTitle"></h4>
+          <div id="docs"></div>
+          <button type="button" class="submit" onclick="submitForm()"><i class="fas fa-paper-plane"></i> Submit Request</button>
+          <div class="note"><i class="fas fa-info-circle"></i> Documents will be verified before processing. Fees apply – pay securely.</div>
+          <div id="errorMsg" class="error"></div>
+          <div id="successMsg" class="success"></div>
+          <div id="loading" class="loading"><i class="fas fa-spinner fa-spin"></i> Submitting... Please wait.</div>
+        </div>
+      </form>
+    </div>
+    <div class="testimonials">
+      <h2>What Our Customers Say</h2>
+      <div class="testimonial">"Fast and reliable service! Got my PAN card in days." – Rajesh K.</div>
+      <div class="testimonial">"Easy online process, no hassle." – Priya S.</div>
+    </div>
+  </main>
 </div>
-
-<!-- Content -->
-<div class="container services">
-    <h2>Our Services</h2>
-    <ul>
-        <li>Dubai Visa Service</li>
-        <li>All Country Air Tickets</li>
-        <li>Dubai Hotel Booking</li>
-        <li>Money Transfer (Dubai to India)</li>
-    </ul>
-
-    <!-- WhatsApp -->
-    <a class="whatsapp" href="https://wa.me/917317060110" target="_blank">
-        📞 WhatsApp: 73170 60110
-    </a>
-</div>
-
-<!-- Footer -->
 <div class="footer">
-    © TrustLine International
+  <p>&copy; 2023 Shakeeb Computer. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
 </div>
+<script>
+// JavaScript remains unchanged for functionality, but you can add more if needed
+const services = {
+  voter: ["Aadhaar Card", "Address Proof", "Passport Size Photo"],
+  pan: ["Aadhaar Card", "Passport Size Photo", "Mobile Number"],
+  aadhaar: ["Aadhaar Card", "Address Proof", "Mobile Number"],
+  income: ["Aadhaar Card", "Ration Card", "Self Declaration"],
+  caste: ["Aadhaar Card", "Father Caste Certificate", "Ration Card"],
+  domicile: ["Aadhaar Card", "Address Proof"],
+  ration: ["Aadhaar of all family members", "Old Ration Card (if any)"],
+  ayushman: ["Aadhaar Card", "Ration Card"],
+  passport: ["Aadhaar Card", "Address Proof", "Birth Proof"],
+  dl: ["Aadhaar Card", "Age Proof", "Address Proof"],
+  resume: ["Education Details", "Photo", "Experience (if any)"]
+};
 
+function openService(key, btn) {
+  document.querySelectorAll('.service-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const box = document.getElementById("docBox");
+  const docs = document.getElementById("docs");
+  const title = document.getElementById("serviceTitle");
+  title.innerHTML = `<i class="fas fa-file-alt"></i> ${btn.innerText} – Required Documents`;
+  docs.innerHTML = "";
+  services[key].forEach(d => {
+    const div = document.createElement("div");
+    div.className = "doc";
+    div.innerHTML = `<label><i class="fas fa-upload"></i> ${d}</label><input type="file" name="files" accept=".jpg,.png,.pdf" required>`;
+    docs.appendChild(div);
+  });
+  box.style.display = "block";
+}
+
+function submitForm() {
+  const form = document.getElementById("serviceForm");
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const mobile = document.getElementById("mobile").value.trim();
+  const errorMsg = document.getElementById("errorMsg");
+  const successMsg = document.getElementById("successMsg");
+  const loading = document.getElementById("loading");
+  errorMsg.innerText = "";
+  successMsg.innerText = "";
+  
+  if (!name || !email || !mobile) {
+    errorMsg.innerText = "Please fill all required fields.";
+    return;
+  }
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    errorMsg.innerText = "Please enter a valid email address.";
+    return;
+  }
+  const mobileRegex = /^[6-9]\d{9}$/;
+  if (!mobileRegex.test(mobile)) {
+    errorMsg.innerText = "Please enter a valid 10-digit mobile number starting with 6-9.";
+    return;
+  }
+  
+  const formData = new FormData(form);
+  formData.append('service', document.querySelector('.service-btn.active').innerText);
+  loading.style.display = "block";
+  fetch('/submit', { method: 'POST', body: formData })
+    .then(response => response.text())
+    .then(data => {
+      loading.style.display = "none";
+      successMsg.innerText = data;
+      form.reset();
+      document.getElementById("docBox").style.display = "none";
+    })
+    .catch(error => {
+      loading.style.display = "none";
+      errorMsg.innerText = "Error submitting form. Try again.";
+      console.error(error);
+    });
+}
+
+function resetForm() {
+  document.getElementById("serviceForm").reset();
+  document.getElementById("docBox").style.display = "none";
+  document.querySelectorAll('.service-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById("errorMsg").innerText = "";
+  document.getElementById("successMsg").innerText = "";
+}
+
+function toggleSidebar() {
+  const sidebar = document.querySelector('.sidebar');
+  sidebar.classList.toggle('collapsed');
+}
+</script>
 </body>
 </html>
